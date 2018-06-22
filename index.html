@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+			background: #ccc;
+			position: absolute;
+			margin: auto;
+			width: 200px;
+			height: 200px;
+		}
+		#btn{
+			width: 50px;
+			margin: 0 auto;
+		}
+		#cont{
+			background: #eeee;
+			display: none;
+		}
+		#cont input{
+			margin:5px ;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="box" >
+		<div id="btn">
+			<button>登录</button>
+		</div>
+		<div id="cont">
+			<input type="txte" name="" id="name" value="" placeholder="账号名"/> <span id="info"></span>
+<br/>
+			<input type="password" name="" id="pass" value="" placeholder="密码"/> <span id="info1"></span>
+<br/>
+			<input type="txte" name="" id="codes" value="" lang="4" placeholder="验证码"/> <span id="info2"></span>
+
+			<input type="txte" name="" id="code" value=""/> <span id="info3"></span>
+<br/>
+			<input type="button" name="" id="rest" value="换一换" > <span id="info4"></span>
+<br/>
+			<input type="radio" name="" id="" value="" /> 记住用户<span id="info5"></span>
+<br/>
+			<input type="button" name="" id="bttn" value="登录" />
+		</div>
+		</div>
+		<script src="js/tools.js"></script>
+		<script>
+			var winWidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,
+				winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+				boxWidth=$("#box").offsetWidth,
+				boxHeight=$("#box").offsetHeight;
+				/*点击登录按钮btn显示登录界面*/
+				$("#btn").onclick=function(){		
+					$("#cont").style.display="block"
+				}
+			/*鼠标移动，限定登录界面在窗口的移动范围*/
+			$("#box").onmousedown=function(e){
+				e=e||event;
+				var _ofx=e.offsetX,
+				    _ofy=e.offsetY;
+				    document.onmousemove=function(e){
+				    	e=e||event;
+				    	var _top=e.clientY- _ofy,
+				    		_left=e.clientX -_ofx;
+				    	if (_top<0) 
+				    		_top=0;
+				    	else if (_top>winHeight-boxHeight)
+						_top = winHeight - boxHeight;
+				    	if (_left < 0) // 左
+						_left = 0;
+						else if (_left > winWidth - boxWidth) // 右 
+						_left = winWidth - boxWidth;
+						css($("#box"),{
+							top:_top+"px",
+							left:_left+"px"
+						}); 
+				 	  }
+				    		document.onmouseup=function(){
+				    		document.onmousemove=null;
+				    		document.onmouseup=null;
+					  }
+				  }
+			/*生成验证码*/
+			 
+			$("#rest").onclick=function(){
+				var arr = [];
+    			for (var i = 0 ; i < 4 ; i++) { 
+       		 	arr.push(parseInt(Math.random() * 10));
+   			 }
+			$("#code").value=arr;
+			}
+		$("#bttn").onclick=function(){
+			var name=document.getElementById("name").value;
+				var reg = /^(?=.*\d)[a-z\d]{4,20}$/i;
+				var result = reg.test($("#bttn"));
+					document.getElementById("info").innerText = result ? "正确" : "账号为4-16位数字或字母";
+
+		}	
+		$("#bttn").onclick=function(){
+				var pass=document.getElementById("pass").value;
+				var reg = /^[0-9a-z]{3,}|_[0-9a-z]{3,}$/i;
+				var result = reg.test($("#bttn"));
+		document.getElementById("info1").innerText = result ? "正确" : "密码为6-32位数字或字母";
+		}
+	var code=document.getElementById("code").value;
+	var codes=document.getElementById("codes").value;
+	if (code!==codes) {
+		document.getElementById("info2").innerText ="验证码不正确重新输入";
+	}
+		</script>
+	</body>
+</html>
