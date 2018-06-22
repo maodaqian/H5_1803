@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+
+<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="wrap">	
+   <div class="container">
+
+	<!-- 头部 -->
+	<div class="header"></div>
+
+	<div class="grid_1">
+		<div class="col-md-3 banner_left">
+			<img src="images/pic1.png" class="img-responsive" alt=""/>
+			<div class="banner_desc">
+				<h1>Slim Fit Men </h1>
+				<h2>Roundcheck T-Shirt</h2>
+				<h5>$125
+					   <small>Only</small>
+					</h5>
+			    <a href="#" class="btn1 btn4 btn-1 btn1-1b">Add To Cart</a>
+			</div>
+		</div>
+		<div class="col-md-9 banner_right">
+			 <!-- FlexSlider -->
+			<ul class="slides" style="overflow: hidden; height: 575px; list-style: none; margin: 0; padding: 0;">
+				<li><img src="images/banner.jpg" alt=""/></li>
+			</ul>
+              <!-- FlexSlider -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+<div class="content">
+  <div class="content_box">
+  	<!-- 热卖商品模板 -->
+  	<script id="hot_sale_temp" type="text/html">
+  		{{each list prod}}
+  		<a href="single.html">
+  			<li>
+  				<span class="id" style="display: none;">{{prod.id}}</span>
+  				<img src="{{prod.img}}" class="img-responsive"/>
+				<span class="btn5">${{prod.price}}</span>
+				<p>{{prod.title}}</p>
+			</li>
+		</a>
+		{{/each}}
+  	</script>
+	<ul class="grid_2">
+		<div class="clearfix"> </div>
+	</ul>
+	<div class="grid_3">
+		<div class="col-md-6 box_2">
+			<div class="section_group"> 
+		      	<div class="col_1_of_2 span_1_of_2">
+		      		<img src="images/pic7.jpg" class="img-responsive" alt=""/>
+		        </div>
+                <div class="col_1_of_2 span_1_of_2">
+		      		<img src="images/pic8.jpg" class="img-responsive" alt=""/>
+		        </div>
+                <div class="clearfix"> </div>
+            </div>
+		</div>
+		<div class="col-md-6">
+			<div class="box_3">
+			  <div class="col_1_of_2 span_1_of_2 span_3">
+		      		<h3>Paul Slim Fit Men
+						Roundneck
+						T-Shirt</h3>
+                  <h4>$156</h4>
+                  <p>Offer Available till Sunday 12 Nov 2014.</p>
+                  <a href="#" class="btn1 btn6 btn-1 btn1-1b">Add To Cart</a>
+		        </div>
+                <div class="col_1_of_2 span_1_of_2 span_4">
+                   <div class="span_5">
+		      		 <img src="images/pic9.png" class="img-responsive" alt=""/>
+		      	    </div>
+		        </div>
+                <div class="clearfix"> </div>
+            </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	
+	<!-- 尾部 -->
+	<div class="footer"></div>
+
+   </div>
+</div>	
+
+<script src="lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="lib/jquery-plugins/jquery.cookie.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/loadHeaderAndFooter.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>		

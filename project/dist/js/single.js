@@ -1,0 +1,1 @@
+"use strict";$(function(){$(".btn_form input").on("click",function(t){var o=$(".bag_left").offset();$("<img src='/images/m1.jpg' style='width:40px;'>").fly({start:{left:t.pageX-$(window).scrollLeft(),top:t.pageY-$(window).scrollTop()},end:{left:o.left-$(window).scrollLeft(),top:o.top-$(window).scrollTop()},onEnd:function(){this.destroy()}})})});

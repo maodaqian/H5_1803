@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!-- start menu -->
+<link href="/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="wrap">	
+<div class="container">
+	<!-- 头部 -->
+	<div class="header"></div>
+
+<div class="content">
+  <div class="content_box">
+	<div class="men cart cart_empty hide">
+	    <h1>It appears that your cart is currently empty!</h1>
+	    <h2>You can continue browsing <a href="men.html">here</a>.</h2>
+    </div>
+    <div class="cart_not_empty hide row">
+    	<table class="table table-bordered table-hover">
+    		<thead>
+    			<tr>
+    				<th class="col-md-1"><label><input type="checkbox" class="ck_all">全选</label></th>
+    				<th class="col-md-2">图片</th>
+	    			<th class="col-md-3">标题</th>
+	    			<th class="col-md-1">价格</th>
+	    			<th class="col-md-2">数量</th>
+	    			<th class="col-md-1">小计</th>
+	    			<th class="col-md-2">操作</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+
+    		</tbody>
+    		<tfoot>
+    			<tr>
+    				<td>合计</td>
+    				<td colspan="6" class="total">0.00</td>
+    			</tr>
+    		</tfoot>
+    	</table>
+    	<a class="btn btn-danger" href="confirm.html">去结算</a>
+    	<script type="text/html" id="cart_temp">
+    		{{each products prod}}
+    		<tr data-id="{{prod.id}}">
+				<td><input type="checkbox" class="ck_prod"></td>
+				<td><img src="{{prod.img}}"></td>
+				<td>{{prod.title}}</td>
+				<td>{{prod.price}}</td>
+				<td>
+					<div class="input-group">
+					  <span class="input-group-addon minus">-</span>
+					  <input type="text" class="form-control text-center amount" value="{{prod.amount}}">
+					  <span class="input-group-addon add">+</span>
+					</div>
+				</td>
+				<td class="sub_total">{{(prod.price * prod.amount).toFixed(2)}}</td>
+				<td><a href="javascript:void(0);" class="del_link">删除</a></td>
+			</tr>
+			{{/each}}
+    	</script>
+    </div>
+	
+	<!-- 尾部 -->
+	<div class="footer"></div>
+
+   </div>
+</div>	
+
+<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="../lib/jquery-plugins/jquery.cookie.js"></script>
+<script src="../lib/artTemplate/template-web.js"></script>
+<script src="../js/loadHeaderAndFooter.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>		
